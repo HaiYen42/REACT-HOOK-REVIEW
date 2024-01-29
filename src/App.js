@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import UseReduce from "./components/UseReduce";
+import UseMemo from "./components/UseMemo";
+import UseStateToDoList from "./components/UseStateToDoList";
+import TwoWayBinding from "./components/TwoWayBinding";
+import DomEvent from "./components/DomEvent-CallAPI";
+import { useState } from "react";
+import UseRef from "./components/UseRef";
+import ToDoApp from "./components/ToDoApp-Reducer/ToDoApp";
 
 function App() {
+  const [show, setShow] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* <UseStateToDoList /> */}
+
+      {/* <TwoWayBinding/> */}
+      <div style={{ padding: 20 }}>
+        <button
+          onClick={() => {
+            setShow(!show);
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Toogle
+        </button>
+        {/* {show && <DomEvent />} */}
+        {/* {show && <UseRef />} */}
+        {/* {show && <UseMemo/>} */}
+        {/* {show && <UseReduce />} */}
+        {show && <ToDoApp />}
+      </div>
     </div>
   );
 }
